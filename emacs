@@ -17,6 +17,7 @@
 (setq ido-everywhere t)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path "~/.emacs.d/el-get/xcscope")
 (add-to-list 'load-path (expand-file-name "~/environment/emacs"))
 (require 'cpp-font-lock)
 (require 'xcscope)

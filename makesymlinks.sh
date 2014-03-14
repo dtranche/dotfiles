@@ -9,6 +9,8 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc emacs"
+emacsdir=$dir/emacs_el_files
+emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el"
 #files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
 
 ##########
@@ -30,3 +32,12 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+envdir=~/environment/emacs/
+cd $emacsdir
+
+for file in $emacsfiles; do
+    echo "Creating symlink to $file in $emacsdir"
+    ln -s $emacsdir/$file $envdir/$file
+done
+echo "done"
