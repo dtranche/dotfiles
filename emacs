@@ -22,8 +22,9 @@
 ;; TURN OFF THE ICONS
 (tool-bar-mode 1)
 
+(add-to-list 'auto-mode-alist '("bashrc\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("emacs\\'" . lisp-mode))
 
-;; Global Key Bindings
 (define-key global-map "\C-xw" 'what-line)
 (global-set-key "\C-xg" 'goto-line)
 (define-key global-map [delete] 'delete-char)
@@ -160,11 +161,17 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (add-to-list 'load-path "~/.emacs.d/el-get/git-emacs")
 (add-to-list 'load-path (expand-file-name "~/environment/emacs"))
 
+; color theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/el-get/color-theme-solarized")
+(load-theme 'tango-dark )
+;(setq solarized-termcolors 256)
+
 (require 'cpp-font-lock)
 (require 'auto-complete)
 (require 'xcscope)
 (require 'grep-buffers)
 (require 'custom-java-style)
+(require 'git-emacs)
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -175,3 +182,15 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(git-baseline-alist (quote (("/Users/denistranchemontagne/dotfiles/" . "master"))) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
