@@ -15,7 +15,9 @@ export HISTCONTROL=ignoreboth
 
 alias h='history'
 alias hgrep='history | egrep'
-alias e='/usr/local/bin//emacs $@'
+alias e='/usr/local/bin/emacs $@'
+
+export LESS='-j24 -X -I'     
 
 function _mailE
 {
