@@ -6,6 +6,17 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 #add classpath for coursera algorthims
+export ostype=`uname`
+
+case $ostype in 
+Darwin)
+        echo I am a Mac
+        ;;
+Linux)
+        echo I am Linux
+        ;;
+esac
+
 export CLASSPATH+=.:/home/denis/algs4/stdlib.jar:/home/denis/algs4/algs4.jar
 
 # User specific aliases and functions
@@ -27,6 +38,10 @@ function _mailE
 function _ppid
 {
     ps -p ${1:-$$} -o ppid=; 
+}
+function osType ( )
+{
+    echo $ostype
 }
 alias mailE='_mailE'
 alias ppid='_ppid'
