@@ -19,7 +19,7 @@ alias e='/usr/local/bin//emacs $@'
 
 function _mailE
 {
-    mailx -r dtranche@gmail.com -s $1 dtranchemontagne.3228de6@m.evernote.com;
+    mailx -s $1 dtranchemontagne.3228de6@m.evernote.com;
 }
 
 function _ppid
