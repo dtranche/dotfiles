@@ -14,7 +14,6 @@ emacssettings=$dir/my_settings
 
 emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el"
 
-
 ##########
 
 # create dotfiles_old in homedir
@@ -35,7 +34,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-settings="el-get-settings.el"
+settings="el-get-settings.el basic-settings.el custom-functions.el"
 settingsdir=~/.emacs.d/settings
 if  [ ! -d "$settingsdir" ]; then
     mkdir -p $settingsdir
