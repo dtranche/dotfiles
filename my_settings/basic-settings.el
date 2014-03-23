@@ -39,10 +39,20 @@
 (global-set-key (kbd "C-`") 'push-mark-no-activate)
 (global-set-key (kbd "M-`") 'jump-to-mark)
 
+;; add a couple to auto-modes-alist
+(add-to-list 'auto-mode-alist '("[Mm]ake*" . makefile-mode))
+
 ;; set command key to be meta instead of option
 ;; ns seems broken 3/22/2014???
 (if (system-is-mac)
     (message "I am a Mac")
     (setq ns-command-modifier 'meta))
+
+(if (>= emacs-major-version 24) 
+    (progn
+      (load-theme 'tango-dark)
+      (message "Running emacs 24 or greater"))
+  (message "Think about updating emacs")
+)
 
 (provide 'basic-settings)
