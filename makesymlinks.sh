@@ -1,4 +1,4 @@
-#!/bin/bash
+o#!/bin/bash
 ############################
 # .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
@@ -10,8 +10,10 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc emacs"
 emacsdir=$dir/emacs_el_files
+emacssettings=$dir/my_settings
+
 emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el"
-#files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+
 
 ##########
 
@@ -33,7 +35,21 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+settings="el-get-settings.el"
+settingsdir=~/.emacs.d/settings
+if  [ ! -d "$settingsdir" ]; then
+    mkdir -p $settingsdir
+fi
+cd $settingsdir
+for file in $settings; do
+    ln -s $emacssettings/$file $settingsdir/$file
+done
+
 envdir=~/environment/emacs/
+if  [ ! -d "$envdir" ]; then
+    mkdir -p $envdir
+fi
+
 cd $emacsdir
 
 for file in $emacsfiles; do
