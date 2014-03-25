@@ -24,7 +24,8 @@
 					            '++))))
 
 (font-lock-add-keywords 'c++-mode
-  '(("override" . font-lock-keyword-face)))
+                        '(("override" . font-lock-keyword-face)
+                        ("typeof" . font-lock-keyword-face)))
 
 
 ;; Associate extensions with modes
