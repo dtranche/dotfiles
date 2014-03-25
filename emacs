@@ -4,6 +4,8 @@
 (message ".emacs started load.")
 (setq inhibit-startup-message nil)
 
+(defvar user (getenv "USER"))
+
 (setq plugin-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/settings")
 (add-to-list 'load-path (expand-file-name "~/environment/emacs"))
@@ -23,7 +25,11 @@
 ;; setup for Redline
 (if (< emacs-major-version 24)
     (progn
-      (require 'xcscope)
+      (require 'xcscope)))
+
+(if (string-match "denist" user)
+    (progn
+      (message "My Redline specific configs")
       (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window)
       (color-theme-initialize)
       (color-theme-taming-mr-arneson)))
