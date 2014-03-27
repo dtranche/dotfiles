@@ -8,12 +8,13 @@ fi
 #add classpath for coursera algorthims
 export ostype=`uname`
 
+#echo breaks the build
 case $ostype in 
 Darwin)
-        echo I am a Mac
+#        echo I am running on a Mac
         ;;
 Linux)
-        echo I am Linux
+#        echo I am running on Linux
         ;;
 esac
 

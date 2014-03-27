@@ -1,0 +1,4 @@
+;; Usefull linux/bash stuff I forget
+id USER -- prints user info
+id denist
+uid=557(denist) gid=557(denist) groups=557(denist),601(inrush)
