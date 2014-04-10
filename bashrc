@@ -22,7 +22,7 @@ Linux)
         ;;
 esac
 
-tif [ $UID == $DENIST_UID ]; then
+if [ $UID == $DENIST_UID ]; then
     if [ -e ~/local/bin/emacs ]; then
         alias emacs=~/local/bin/emacs
     fi
