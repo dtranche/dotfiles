@@ -42,6 +42,8 @@
 ;; fedora/gnome maps "M-`" to something else
 (global-set-key (kbd "M-1") 'jump-to-mark)
 
+(global-set-key (kbd "M-<up>") 'scroll-down-command)
+(global-set-key (kbd "M-<down>") 'scroll-up-command)
 ;; add a couple to auto-modes-alist
 (add-to-list 'auto-mode-alist '("[Mm]ake*" . makefile-mode))
 
