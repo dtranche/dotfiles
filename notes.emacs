@@ -5,6 +5,7 @@ C-h v -- help variable
 C-h k -- help on key
 C-h f -- help on function
 
+C-x C-+/- to change the text size
 ;; use occur mode
 M-s o -- search a given buffer for all occurance
 C-x ` -- to navigate to next 

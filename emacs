@@ -5,11 +5,24 @@
 (setq inhibit-startup-message nil)
 
 (defvar user (getenv "USER"))
-
 (setq plugin-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/settings")
 (add-to-list 'load-path (expand-file-name "~/environment/emacs"))
 
+;; this would normally come from el-get packaging
+;; setup for Redline
+(if (< emacs-major-version 24)
+    (progn
+      (require 'xcscope)
+      (progn
+	(if (string-match "denist" user)
+	    (progn
+	      (message "My Redline specific configs")
+	      (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window)
+	      ;;(color-theme-initialize)
+	      ;;(color-theme-taming-mr-arneson)
+	      )))))
+    
 ;; useful since we edit these when there are failures
 (add-to-list 'auto-mode-alist '("bashrc\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("emacs\\'" . lisp-mode))
@@ -21,18 +34,6 @@
 (require 'cpp-settings)
 ;;(global-set-key "\r" 'cscope-select-entry-other-window)
 
-;; this would normally come from el-get packaging
-;; setup for Redline
-(if (< emacs-major-version 24)
-    (progn
-      (require 'xcscope)))
-
-(if (string-match "denist" user)
-    (progn
-      (message "My Redline specific configs")
-      (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window)
-      (color-theme-initialize)
-      (color-theme-taming-mr-arneson)))
 
 ;; not sure what do with this
 ;;(define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window)
@@ -40,7 +41,22 @@
 ;;  if I am in terminal mode
 ;;(if (= window-system nil)
 ;; stuff I got from the web
-(require 'cpp-font-lock)
+;;(require 'cpp-font-lock)
 (require 'grep-buffers)
 (require 'custom-java-style)
 
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(font-lock-string-face ((t (:foreground "red" :slant normal))))
+ '(font-lock-type-face ((t (:foreground "#006400" :weight extra-bold))))
+ '(font-lock-variable-name-face ((t (:foreground "#408000" :weight semi-bold)))))
