@@ -17,7 +17,8 @@ Linux)
         ;;
 esac
 
-export CLASSPATH+=.:/home/denis/algs4/stdlib.jar:/home/denis/algs4/algs4.jar
+#export CLASSPATH+=.:/home/denis/algs4/stdlib.jar:/home/denis/algs4/algs4.jar
+export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
 
 # User specific aliases and functions
 export PATH=$PATH:~/bin:/opt/llvm/bin
@@ -30,6 +31,8 @@ alias e='/usr/local/bin/emacs $@'
 
 export LESS='-j24 -X -I'     
 
+# @<notebook>#<tag>#<tag>
+# notebook and tags must exist
 function _mailE
 {
     mailx -s $1 dtranchemontagne.3228de6@m.evernote.com;
