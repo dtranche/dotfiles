@@ -44,8 +44,3 @@
 
 (require 'grep-buffers)
 (require 'custom-java-style)
-
-;;(require 'cpp-font-lock)
-(require 'grep-buffers)
-(require 'custom-java-style)
-
