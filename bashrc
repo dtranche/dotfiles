@@ -1,24 +1,36 @@
 # edit by changing to shell-script-mode
 # .bashrc
 
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
+# differentiat between Redline and other accounts
+DENIST_UID=557
+
 #add classpath for coursera algorthims
 export ostype=`uname`
 
+#echo breaks the build
 case $ostype in 
 Darwin)
-        echo I am a Mac
+#        echo I am running on a Mac
         ;;
 Linux)
-        echo I am Linux
+#        echo I am running on Linux
         ;;
 esac
 
-#export CLASSPATH+=.:/home/denis/algs4/stdlib.jar:/home/denis/algs4/algs4.jar
 export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
+
+if [ $UID == $DENIST_UID ]; then
+    if [ -e ~/local/bin/emacs ]; then
+        alias emacs=~/local/bin/emacs
+    fi
+fi
+
+for f in ~/environment/bash/*; do if [[ -f $f ]]; then . $f; fi; done
 
 # User specific aliases and functions
 export PATH=$PATH:~/bin:/opt/llvm/bin

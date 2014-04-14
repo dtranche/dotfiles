@@ -12,7 +12,7 @@ files="bashrc emacs"
 emacsdir=$dir/emacs_el_files
 emacssettings=$dir/my_settings
 
-emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el"
+emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el package.el"
 
 ##########
 

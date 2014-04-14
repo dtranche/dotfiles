@@ -30,7 +30,8 @@
 (define-key global-map [f2] 'undo)
 (define-key global-map [f3] 'isearch-forward)
 (define-key global-map [f4] 'other-window)
-(define-key global-map [f5] 'ediff-buffers)
+(define-key global-map [f5] 'other-frame)
+;;(define-key global-map [f5] 'ediff-buffers)
 (define-key global-map [f12] 'revert-buffer)
 (global-set-key [f9] 'compile)
 
@@ -38,7 +39,11 @@
 (global-set-key "%" 'match-paren)
 (global-set-key (kbd "C-`") 'push-mark-no-activate)
 (global-set-key (kbd "M-`") 'jump-to-mark)
+;; fedora/gnome maps "M-`" to something else
+(global-set-key (kbd "M-1") 'jump-to-mark)
 
+(global-set-key (kbd "M-<up>") 'scroll-down-command)
+(global-set-key (kbd "M-<down>") 'scroll-up-command)
 ;; add a couple to auto-modes-alist
 (add-to-list 'auto-mode-alist '("[Mm]ake*" . makefile-mode))
 
@@ -50,6 +55,8 @@
 
 (if (>= emacs-major-version 24) 
     (progn
+;;      (load-theme 'whiteboard)
+;;      (if (system-is-mac)
       (load-theme 'tango-dark)
       (message "Running emacs 24 or greater"))
   (message "Think about updating emacs")
