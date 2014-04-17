@@ -20,6 +20,12 @@ C-x ~ -- to navigate to previous (not set up)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'list-buffers 'ibuffer)    
 
+(global-set-key (kbd "M-<up>") 'scroll-down-command)
+(global-set-key (kbd "M-<down>") 'scroll-up-command)
+;;looks like these are the correct commands
+(global-set-key (kbd "ESC <up>") 'scroll-down-command)
+(global-set-key (kbd "ESC <down>") 'scroll-up-command)
+
 
 ;; create an eshell named main
 (defun test-es ()
