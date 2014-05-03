@@ -6,7 +6,8 @@
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-# differentiat between Redline and other accounts
+
+# differentiate between Redline and other accounts
 DENIST_UID=557
 
 #add classpath for coursera algorthims
@@ -22,12 +23,14 @@ Linux)
         ;;
 esac
 
-export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
 
 if [ $UID == $DENIST_UID ]; then
     if [ -e ~/local/bin/emacs ]; then
         alias emacs=~/local/bin/emacs
     fi
+else
+    export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
+    
 fi
 
 for f in ~/environment/bash/*; do if [[ -f $f ]]; then . $f; fi; done
@@ -48,6 +51,12 @@ export LESS='-j24 -X -I'
 function _mailE
 {
     mailx -s $1 dtranchemontagne.3228de6@m.evernote.com;
+}
+
+function build_cscope ( )
+{
+    find -L . -name \*.cc -o -name \*.cpp -o -name \*.c -o -name \*.h  > cscope.files
+    cscope -b -k
 }
 
 function _ppid

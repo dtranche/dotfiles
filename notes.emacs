@@ -52,3 +52,6 @@ C-x ~ -- to navigate to previous (not set up)
 dired <directory>
 find-dired . "-name \*.h"
 ;; create .Eshell file 
+;; setup cscope 
+find -L . -name \*.cc -o -name \*.cpp -o -name \*.c -o -name \*.h  > cscope.files
+cscope -b -q -k
