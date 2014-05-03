@@ -64,4 +64,7 @@
   (message "Think about updating emacs")
 )
 
+(defalias 'rb 'revert-buffer)
+(defalias 'es 'eshell)
+(defalias 'rn 'rename-buffer)
 (provide 'basic-settings)

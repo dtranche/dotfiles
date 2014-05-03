@@ -70,4 +70,6 @@ function osType ( )
 alias mailE='_mailE'
 alias ppid='_ppid'
 
+alias gateway='ssh -o ServerAliveInterval=120 denist@gateway'
+alias prada='ssh -o ServerAliveInterval=120 denist@prada'
 
