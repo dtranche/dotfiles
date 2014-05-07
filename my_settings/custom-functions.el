@@ -47,4 +47,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (interactive)
     (string-equal system-type "gnu/linux"))
 
+(defun is-aws ()
+  (interactive)
+  (if (string-match "aws-us-east-1.redlinetrading.com" system-name)
+      t
+    nil))
+
 (provide 'custom-functions)
