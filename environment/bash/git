@@ -1,0 +1,4 @@
+. ~/bin/git-completion.bash
+PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+#GIT_PS1_SHOWDIRTYSTATE=1
+
