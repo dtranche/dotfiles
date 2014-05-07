@@ -10,6 +10,8 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc emacs"
 emacsdir=$dir/emacs_el_files
+bashdir=$dir/environment/bash
+
 emacssettings=$dir/my_settings
 
 emacsfiles="cpp-font-lock.el custom-java-style.el grep-buffers.el package.el"
@@ -55,4 +57,23 @@ for file in $emacsfiles; do
     echo "Creating symlink to $file in $emacsdir"
     ln -s $emacsdir/$file $envdir/$file
 done
+
+envdir=~/environment/bash/
+if  [ ! -d "$envdir" ]; then
+    mkdir -p $envdir
+fi
+
+cd $bashdir
+for file in $bashdir/*; do
+    ln -s $file $envdir
+done
+
+if [ ! -d ~/bin ]; then
+    mkdir -p ~/bin
+fi
+
+for file in ~/dotfiles/bin/*; do
+    ln -s $file ~/bin
+done
+
 echo "done"
