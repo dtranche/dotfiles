@@ -44,7 +44,7 @@ alias h='history'
 alias hgrep='history | egrep'
 alias e='/usr/local/bin/emacs $@'
 
-export LESS='-j24 -X -I'     
+export LESS='-j24 -X'     
 
 # @<notebook>#<tag>#<tag>
 # notebook and tags must exist
@@ -70,6 +70,6 @@ function osType ( )
 alias mailE='_mailE'
 alias ppid='_ppid'
 
-alias gateway='ssh -o ServerAliveInterval=120 denist@gateway'
-alias prada='ssh -o ServerAliveInterval=120 denist@prada'
+alias gateway='ssh -X -o ServerAliveInterval=120 denist@gateway'
+alias prada='ssh -X -o ServerAliveInterval=120 denist@prada'
 
