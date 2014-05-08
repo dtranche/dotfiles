@@ -114,3 +114,9 @@ function fcinslatest () {
         sudo rpm -Uvh --force  $myrpm 
 }
 
+function fhdellog() {
+    if fh220 -eq 0
+    then rm -f /usr/share/fh/log/*.log;
+    else rm -f /var/opt/redlinetrading/fh/log/*.log;
+    fi
+}

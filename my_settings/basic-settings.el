@@ -67,4 +67,5 @@
 (defalias 'rb 'revert-buffer)
 (defalias 'es 'eshell)
 (defalias 'rn 'rename-buffer)
+
 (provide 'basic-settings)

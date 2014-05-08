@@ -28,15 +28,17 @@
 (add-to-list 'auto-mode-alist '("emacs\\'" . lisp-mode))
 
 (require 'custom-functions)
-(require 'basic-settings)
 (require 'cpp-settings)
 
 (if (is-aws)
     (progn
       (require 'xcscope)
+      (message "My Redline AWS specific configs")
       (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window))
   (if (>= emacs-major-version 24) 
       (require 'el-get-settings)))
+
+(require 'basic-settings)
 
 (require 'grep-buffers)
 (require 'custom-java-style)
