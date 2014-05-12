@@ -102,13 +102,13 @@ function fhlatest() {
     ll -dt ~/rpm/RPMS/x86_64/* | head -n 1
 }
 
-function fhcplatest ( ) {
+function fhcplatest() {
         myrpm=`ll -dt ~/rpm/RPMS/x86_64/* | head -n 1 |  cut -d' ' -f10`
         echo $myrpm
         scp $myrpm prada:~/rpm/RPMS/x86_64/
 }
 
-function fcinslatest () {
+function fcinslatest() {
         myrpm=`ll -dt ~/rpm/RPMS/x86_64/* | head -n 1 |  cut -d' ' -f10`
         echo $myrpm
         sudo rpm -Uvh --force  $myrpm 
