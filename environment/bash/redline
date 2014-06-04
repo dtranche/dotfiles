@@ -103,13 +103,13 @@ function fhlatest() {
 }
 
 function fhcplatest() {
-        myrpm=`ll -dt ~/rpm/RPMS/x86_64/* | head -n 1 |  cut -d' ' -f10`
+        myrpm=`fhlatest | awk '{print $NF}'`
         echo $myrpm
         scp $myrpm prada:~/rpm/RPMS/x86_64/
 }
 
-function fcinslatest() {
-        myrpm=`ll -dt ~/rpm/RPMS/x86_64/* | head -n 1 |  cut -d' ' -f10`
+function fhinslatest() {
+        myrpm=`fhlatest | awk '{print $NF}'`
         echo $myrpm
         sudo rpm -Uvh --force  $myrpm 
 }
@@ -119,4 +119,26 @@ function fhdellog() {
     then rm -f /usr/share/fh/log/*.log;
     else rm -f /var/opt/redlinetrading/fh/log/*.log;
     fi
+}
+
+
+function fhstart() {
+         sudo service fh start
+}
+function fhstop() {
+         sudo service fh stop
+}
+function fhreset() {
+         sudo service fh reset
+}
+
+
+function egstart() {
+         sudo service fh start
+}
+function egstop() {
+         sudo service fh stop
+}
+function egreset() {
+         sudo service fh reset
 }
