@@ -8,6 +8,7 @@
 (line-number-mode t)
 (column-number-mode t)
 
+(setq linum-format "%d  ")
 ;; Adding 11/08/2012
 ;;(global-linum-mode 1)
 (ido-mode 1)
