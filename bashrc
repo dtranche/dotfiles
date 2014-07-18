@@ -44,7 +44,7 @@ alias h='history'
 alias grep='grep --color'
 alias hgrep='history | grep --color'
 alias e='/usr/local/bin/emacs $@'
-
+alias get_aws='/home/scripts/get_instance.sh centos6 8'
 export LESS='-j24 -X'     
 
 # @<notebook>#<tag>#<tag>
