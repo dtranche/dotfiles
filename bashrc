@@ -1,7 +1,6 @@
 # edit by changing to shell-script-mode
 # .bashrc
 
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -73,4 +72,6 @@ alias ppid='_ppid'
 
 alias gateway='ssh -X -o ServerAliveInterval=120 denist@gateway'
 alias prada='ssh -X -o ServerAliveInterval=120 denist@prada'
+
+alias r_ssh='ssh -o ServerAliveInterval=120 -l denist '
 
