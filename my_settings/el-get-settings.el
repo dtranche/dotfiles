@@ -19,6 +19,7 @@
                ein
                popup
                git-emacs
+               magit
                xcscope
                python-mode
                ))

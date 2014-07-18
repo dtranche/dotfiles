@@ -2,3 +2,5 @@
 id USER -- prints user info
 id denist
 uid=557(denist) gid=557(denist) groups=557(denist),601(inrush)
+
+while read -r line; do echo "My $line; done < <( egrep find_me <fileName> )
