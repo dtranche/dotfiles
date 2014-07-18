@@ -134,11 +134,11 @@ function fhreset() {
 
 
 function egstart() {
-         sudo service fh start
+         sudo service eg start
 }
 function egstop() {
-         sudo service fh stop
+         sudo service eg stop
 }
 function egreset() {
-         sudo service fh reset
+         sudo service eg reset
 }
