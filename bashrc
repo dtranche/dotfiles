@@ -40,7 +40,8 @@ export PATH=$PATH:~/bin:/opt/llvm/bin
 export HISTCONTROL=ignoreboth
 
 alias h='history'
-alias hgrep='history | egrep'
+alias grep='grep --color'
+alias hgrep='history | grep --color'
 alias e='/usr/local/bin/emacs $@'
 
 export LESS='-j24 -X'     
