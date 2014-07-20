@@ -30,13 +30,13 @@
 (require 'custom-functions)
 (require 'cpp-settings)
 
-(if (is-aws)
-    (progn
-      (require 'xcscope)
-      (message "My Redline AWS specific configs")
-      (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window))
-  (if (>= emacs-major-version 24) 
-      (require 'el-get-settings)))
+;;(if (is-aws)
+;;    (progn
+;;      (require 'xcscope)
+;;      (message "My Redline AWS specific configs")
+;;     (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window))
+;;  (if (>= emacs-major-version 24) 
+;;      (require 'el-get-settings)))
 
 (require 'basic-settings)
 
