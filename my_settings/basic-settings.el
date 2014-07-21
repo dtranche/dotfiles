@@ -8,12 +8,16 @@
 (line-number-mode t)
 (column-number-mode t)
 
-(setq linum-format "%d  ")
-;; Adding 11/08/2012
 ;;(global-linum-mode 1)
+(setq linum-format "%4d  ")
+
+;; Adding 11/08/2012
 (ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
+
+;; Highlight the edited line
+(global-hl-line-mode 1)
 
 ;; TURN ON VISIBLE PAREN MATCHING
 (show-paren-mode 1)
