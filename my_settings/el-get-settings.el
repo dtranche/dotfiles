@@ -3,6 +3,7 @@
 (unless (file-exists-p elget-path)
   (make-directory elget-path))
 
+(message "loading el-get stuff")
 ; add el-get to the load path, and install it if it doesn't exist
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (unless (require 'el-get nil 'noerror)
@@ -15,19 +16,25 @@
 ; packages to install
 (setq 
  my-el-packages '(auto-complete
-               color-theme-solarized
-               ein
-               popup
-               git-emacs
-               magit
-               xcscope
-               python-mode
-               ))
+                  auto-complete-c-headers
+                  color-theme-solarized
+                  ein
+                  popup
+                  git-emacs
+                  magit
+                  xcscope
+                  python-mode
+                  ))
+
 ;; enable shallow clone, so we don't need to clone the entire
 ; history of every project
 (setq el-get-git-shallow-clone t)
 
 ; then intsall!
 (el-get 'sync my-el-packages)
+
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+;;(require 'auto-complete-config)
+;;(ac-config-default)
 
 (provide 'el-get-settings)
