@@ -35,10 +35,17 @@
 ;;      (require 'xcscope)
 ;;      (message "My Redline AWS specific configs")
 ;;     (define-key cscope-list-entry-keymap "\r" 'cscope-select-entry-other-window))
-;;  (if (>= emacs-major-version 24) 
-;;      (require 'el-get-settings)))
+
+(if (>= emacs-major-version 24) 
+      (require 'el-get-settings))
 
 (require 'basic-settings)
 
 (require 'grep-buffers)
 (require 'custom-java-style)
+
+(require 'auto-complete)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+(require 'auto-complete-config)
+(ac-config-default)
+
