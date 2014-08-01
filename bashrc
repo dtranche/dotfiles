@@ -67,6 +67,14 @@ function osType ( )
 {
     echo $ostype
 }
+
+
+function title ( )
+{
+    TITLE=$*
+    export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
+}
+
 alias mailE='_mailE'
 alias ppid='_ppid'
 
