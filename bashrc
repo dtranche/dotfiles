@@ -27,6 +27,7 @@ if [ $UID == $DENIST_UID ]; then
     if [ -e ~/local/bin/emacs ]; then
         alias emacs=~/local/bin/emacs
     fi
+    export PATH=$PATH:/home/scripts
 else
     export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
     
