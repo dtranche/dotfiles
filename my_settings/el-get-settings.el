@@ -21,11 +21,12 @@
                   ein
                   popup
                   git-emacs
-                  magit
-                  xcscope
                   python-mode
                   ))
 
+;; not builidng on prada
+;;magit
+; xcscope
 ;; enable shallow clone, so we don't need to clone the entire
 ; history of every project
 (setq el-get-git-shallow-clone t)

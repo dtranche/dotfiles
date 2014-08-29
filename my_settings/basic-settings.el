@@ -64,7 +64,8 @@
     (progn
 ;;      (load-theme 'whiteboard)
 ;;      (if (system-is-mac)
-      (load-theme 'tango-dark)
+;;      (load-theme 'tango-dark)
+        (color-theme-solarized-light)
       (message "Running emacs 24 or greater"))
   (message "Think about updating emacs")
 )
