@@ -5,3 +5,5 @@ uid=557(denist) gid=557(denist) groups=557(denist),601(inrush)
 
 grep FH_FEED ice_symbols_june | sed 's/^FH.*: //g' | sed 's/ [1-9] .*$//g' | while read -r line; do (( ${#line} > max )) && max=${#line} && longest="$line"; done; echo $longest
 while read -r line; do echo "My $line; done < <( egrep find_me <fileName> )
+
+sed 's/^.* : //g' IMPLIED_SYMBOL_COUNT | sed 's/ act.*$//g' | awk '{sum+=$1}END{print sum}'
