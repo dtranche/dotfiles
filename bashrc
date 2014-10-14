@@ -79,8 +79,8 @@ function title ( )
 alias mailE='_mailE'
 alias ppid='_ppid'
 
-alias gateway='ssh -X -o ServerAliveInterval=120 denist@gateway'
-alias prada='ssh -X -o ServerAliveInterval=120 denist@prada'
+alias gucci='ssh -o ServerAliveInterval=120 denist@gucci'
+alias prada='ssh -o ServerAliveInterval=120 denist@prada'
 
 alias r_ssh='ssh -o ServerAliveInterval=120 -l denist '
 
