@@ -121,7 +121,17 @@ function fhdellog() {
     fi
 }
 
+function fhdebug() {
+         cd /opt/redlinetrading/fh/bin
+         sudo sed -r -i 's/^(\s*)(\$BIN_DIR\/fh\.lnx)/\1RC=0; echo -e "\nsudo gdb "\2 /g' internal_control.sh
+         cd -
+         fhstart
+}
 
+function fhnewcfg () {
+         sudo rm -f /etc/opt/redlinetrading/fh/config/fh.cfg
+         sudo ln -s $1 /etc/opt/redlinetrading/fh/config/fh.cfg
+}
 function fhstart() {
          sudo service fh start
 }

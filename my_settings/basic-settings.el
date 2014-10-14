@@ -42,8 +42,8 @@
 
 ;; keystrokes from derived functions
 (global-set-key "%" 'match-paren)
-(global-set-key (kbd "C-`") 'push-mark-no-activate)
-(global-set-key (kbd "M-`") 'jump-to-mark)
+(global-set-key (kbd "C-_") 'push-mark-no-activate)
+(global-set-key (kbd "M-_") 'jump-to-mark)
 ;; fedora/gnome maps "M-`" to something else
 (global-set-key (kbd "M-1") 'jump-to-mark)
 
@@ -70,6 +70,15 @@
   (message "Think about updating emacs")
 )
 
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(defun exchange-point-and-mark-no-activate ()
+  "Identical to \\[exchange-point-and-mark] but will not activate the regions."
+  (interactive)
+  (exchange-point-and-mark)
+  (deactivate-mark nil))
+(define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 (defalias 'rb 'revert-buffer)
 (defalias 'es 'eshell)
 (defalias 'rn 'rename-buffer)

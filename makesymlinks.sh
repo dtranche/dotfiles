@@ -36,7 +36,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-settings="el-get-settings.el basic-settings.el custom-functions.el cpp-settings.el"
+settings="el-get-settings.el basic-settings.el custom-functions.el cpp-settings.el sr-speedbar.el"
 settingsdir=~/.emacs.d/settings
 if  [ ! -d "$settingsdir" ]; then
     mkdir -p $settingsdir
