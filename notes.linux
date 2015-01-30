@@ -7,3 +7,7 @@ grep FH_FEED ice_symbols_june | sed 's/^FH.*: //g' | sed 's/ [1-9] .*$//g' | whi
 while read -r line; do echo "My $line; done < <( egrep find_me <fileName> )
 
 sed 's/^.* : //g' IMPLIED_SYMBOL_COUNT | sed 's/ act.*$//g' | awk '{sum+=$1}END{print sum}'
+
+echo "rts-eg-2.6.24-97c46a4.rhel6.x86_64" | sed -r 's/^.[0-9a-f]{5,40}\.(.$)/\1/'g
+ sed -i 's/[[:space:]]*$//g' big_rl_omx (remove trailing whitespace)
+ last=;grep instrument code fh.log.1 | cut -d ' ' -f 8 | sort |  while read -r line; do if  [[  ==  ]]; then echo ; fi; last=; done

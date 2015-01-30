@@ -31,19 +31,25 @@
 (define-key global-map [delete] 'delete-char)
 (define-key global-map [backspace] 'delete-backward-char)
 (define-key global-map [end] 'end-of-line )
-(define-key global-map [f1] 'help-command)
+;;(define-key global-map [f1] 'help-command)
 (define-key global-map [f2] 'undo)
 (define-key global-map [f3] 'isearch-forward)
-(define-key global-map [f4] 'other-window)
-(define-key global-map [f5] 'other-frame)
-;;(define-key global-map [f5] 'ediff-buffers)
-(define-key global-map [f12] 'revert-buffer)
-(global-set-key [f9] 'compile)
+;;(define-key global-map [f4] 'other-window)
+;;(define-key global-map [f5] 'other-frame)
+(define-key global-map [f4] 'ediff-buffers)
+(global-set-key [f5] 'cscope-find-global-definition)
+(global-set-key [f6] 'cscope-find-this-symbol)
+(global-set-key [(shift f6)] 'cscope-find-this-text-string)
+(global-set-key [f7] 'cscope-next-symbol)
 
+(define-key global-map [f12] 'revert-buffer)
+
+(global-set-key [f9] 'compile)
+(global-set-key [f10] 'next-error)
 ;; keystrokes from derived functions
 (global-set-key "%" 'match-paren)
 (global-set-key (kbd "C-_") 'push-mark-no-activate)
-(global-set-key (kbd "M-_") 'jump-to-mark)
+(global-set-key (kbd "M-/") 'jump-to-mark)
 ;; fedora/gnome maps "M-`" to something else
 (global-set-key (kbd "M-1") 'jump-to-mark)
 
@@ -82,5 +88,12 @@
 (defalias 'rb 'revert-buffer)
 (defalias 'es 'eshell)
 (defalias 'rn 'rename-buffer)
+
+(require 'highlight-symbol)
+
+(global-set-key (kbd "C-`") 'highlight-symbol-at-point)
+(global-set-key [f1] 'highlight-symbol-next)
+(global-set-key [(shift f1)] 'highlight-symbol-prev)
+
 
 (provide 'basic-settings)

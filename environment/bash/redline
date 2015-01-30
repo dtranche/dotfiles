@@ -123,7 +123,7 @@ function fhdellog() {
 
 function fhdebug() {
          cd /opt/redlinetrading/fh/bin
-         sudo sed -r -i 's/^(\s*)(\$BIN_DIR\/fh\.lnx)/\1RC=0; echo -e "\nsudo gdb "\2 /g' internal_control.sh
+         sudo sed -r -i 's/^(\s*)(\$BIN_DIR\/fh\.lnx --daemon)/\1RC=0; echo -e "\nsudo gdb "\2 /g' internal_control.sh
          cd -
          fhstart
 }
@@ -152,3 +152,9 @@ function egstop() {
 function egreset() {
          sudo service eg reset
 }
+
+function _fh_grep() {
+         grep -E --color "$@" /var/opt/redlinetrading/fh/log/fh.log
+}
+
+alias fhgrep=_fh_grep

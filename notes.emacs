@@ -55,3 +55,5 @@ find-dired . "-name \*.h"
 ;; setup cscope 
 find -L . -name \*.cc -o -name \*.cpp -o -name \*.c -o -name \*.h  > cscope.files
 cscope -b -q -k
+
+for num in {1..5}; do grep -E "level\[0$num" ~/trade_volume_book_client.txt | sort -u; done

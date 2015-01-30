@@ -1,4 +1,4 @@
-#!/bin/bash
+b#!/bin/bash
 ############################
 # .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
@@ -36,7 +36,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-settings="el-get-settings.el basic-settings.el custom-functions.el cpp-settings.el sr-speedbar.el"
+settings="el-get-settings.el basic-settings.el custom-functions.el cpp-settings.el sr-speedbar.el highlight-symbols.el"
 settingsdir=~/.emacs.d/settings
 if  [ ! -d "$settingsdir" ]; then
     mkdir -p $settingsdir

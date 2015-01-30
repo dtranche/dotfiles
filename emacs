@@ -58,10 +58,11 @@
 
 (eval-after-load "vc" '(remove-hook 'find-file-hooks 'vc-find-file-hook))
 (setq compile-history 
-      '("make -j 10 server_check_native"
-        "make -j 10 server_fast_native"
-        "make -j 10 server_rpm_native"
-        "make -j 10 server_clean_native"))
+      '("make -j 16 server_check_native"
+        "make -j 16 server_fast_native"
+        "make -j 16 server_rpm_native"
+        "make -j 16 server_clean_native"
+        "make -j 16 realclean"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -76,3 +77,4 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#ffffd7" :foreground "color-236" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(mode-line ((t (:background "color-18" :foreground "#808080" :inverse-video t :box nil :underline nil :slant normal :weight normal)))))
+(put 'upcase-region 'disabled nil)
