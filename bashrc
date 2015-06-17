@@ -32,8 +32,10 @@ else
     export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
     
 fi
-
+. /home/scripts/os_helper_functions.sh
+. /home/scripts/rts_helper_functions.sh
 for f in ~/environment/bash/*; do if [[ -f $f ]]; then . $f; fi; done
+
 
 # User specific aliases and functions
 export PATH=$PATH:~/bin:/opt/llvm/bin
@@ -44,7 +46,7 @@ alias h='history'
 alias grep='grep --color'
 alias hgrep='history | grep --color'
 alias e='/usr/local/bin/emacs $@'
-alias get_aws='/home/scripts/get_instance.sh centos6 8'
+alias get_aws='/home/scripts/get_instance.sh centos7 8'
 export LESS='-j24 -X'     
 
 # @<notebook>#<tag>#<tag>
@@ -84,3 +86,7 @@ alias prada='ssh -o ServerAliveInterval=120 denist@prada'
 
 alias r_ssh='ssh -o ServerAliveInterval=120 -l denist '
 
+export RATTSHOMEDIR='/home/sqa/ratts_release_fh'
+if [ -f /home/sqa/bashrc-ratts ]; then
+    . /home/sqa/bashrc-ratts 
+fi 

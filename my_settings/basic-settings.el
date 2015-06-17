@@ -59,6 +59,8 @@
 (global-set-key (kbd "ESC <down>") 'scroll-up-command)
 ;; add a couple to auto-modes-alist
 (add-to-list 'auto-mode-alist '("[Mm]ake*" . makefile-mode))
+(global-set-key (kbd "C-c a") 'beginning-of-defun)
+(global-set-key (kbd "C-c e") 'end-of-defun)
 
 ;; set command key to be meta instead of option
 ;; ns seems broken 3/22/2014???
@@ -66,15 +68,15 @@
     (message "I am a Mac")
     (setq ns-command-modifier 'meta))
 
-(if (>= emacs-major-version 24) 
-    (progn
+;;(if (>= emacs-major-version 24) 
+;;    (progn
 ;;      (load-theme 'whiteboard)
 ;;      (if (system-is-mac)
 ;;      (load-theme 'tango-dark)
-        (color-theme-solarized-light)
-      (message "Running emacs 24 or greater"))
-  (message "Think about updating emacs")
-)
+;;        (color-theme-solarized-light)
+;;      (message "Running emacs 24 or greater"))
+;;  (message "Think about updating emacs")
+;;)
 
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -95,5 +97,24 @@
 (global-set-key [f1] 'highlight-symbol-next)
 (global-set-key [(shift f1)] 'highlight-symbol-prev)
 
+(defun prev-window()
+  "Moves to the previous window"
+  (interactive)
+  (other-window -1))
 
+(global-set-key (kbd "C-x p") 'prev-window)
+
+(defadvice zap-to-char (after my-zap-to-char-advice (arg char) activate)
+  "Kill up to the ARG'th occurence of CHAR, and leave CHAR.
+  The CHAR is replaced and the point is put before CHAR."
+  (insert char)
+  (forward-char -1))
+
+(defun my-term(buffer-name)
+  (interactive "sbuffer name : ")
+  (ansi-term "/bin/bash")
+  (rename-buffer buffer-name t))
+
+;;(setq split-width-threshold 2000)
+;;(setq split-height-threshold 1200)
 (provide 'basic-settings)

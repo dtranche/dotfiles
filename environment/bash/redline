@@ -45,17 +45,12 @@ function fhtail() {
 }
 
 function fhetail(){
-    if fh220 -eq 0
-    then tail -f /usr/share/fh/log/fh.log;
-    else tail -f /var/opt/redlinetrading/fh/log/fh.log;
-    fi
+     . /home/scripts/rts_helper_common.sh
+    tail -f "$FH_LOG"
 }
 
 function fhilic() {
-    if fh220 -eq 0
-    then sudo cp /home/licenses/rts.lic /usr/share/fh/license/fh.lic;
-    else sudo cp /home/licenses/rts.lic /etc/opt/redlinetrading/fh/license/fh.lic;
-    fi
+         licensefix 
 }
 
 function fhicfg() {
@@ -80,10 +75,8 @@ function fhcfg() {
 }
 
 function fhmc() {
-    if fh220 -eq 0
-    then /usr/share/fh/example/mgmt_client;
-    else /opt/redlinetrading/fh/example/mgmt_client;
-    fi
+     . /home/scripts/rts_helper_common.sh
+     "$FH_EXAMPLE_DIR/mgmt_client"
 }
 
 function fhvcfg() {
@@ -114,11 +107,11 @@ function fhinslatest() {
         sudo rpm -Uvh --force  $myrpm 
 }
 
+alias fhinstall=fhinslatest
+
 function fhdellog() {
-    if fh220 -eq 0
-    then rm -f /usr/share/fh/log/*.log;
-    else rm -f /var/opt/redlinetrading/fh/log/*.log;
-    fi
+    . /home/scripts/rts_helper_common.sh
+    rm -f "$FH_LOG"
 }
 
 function fhdebug() {
@@ -154,7 +147,28 @@ function egreset() {
 }
 
 function _fh_grep() {
-         grep -E --color "$@" /var/opt/redlinetrading/fh/log/fh.log
+         . /home/scripts/rts_helper_common.sh
+         grep -E --color "$@" $FH_LOG
 }
 
 alias fhgrep=_fh_grep
+
+function rmm_install() {
+         cd /home/release/resource-manager/RESOURCE-MANAGER-Release-1-1-0/server/
+         find . -name \*rhel6.x86*.rpm -exec sudo rpm -Uvh --force {} \; -print
+         cd -
+}
+
+
+function fh_setup ( ) {
+#         . /home/scripts/rts_helper_common.sh
+         rmm_install
+         fhinstall
+         . /home/scripts/rts_helper_common.sh
+         config
+	 sudo rm -f "$FH_PREFIX.cfg"
+         sudo ln -s "$*" "$FH_PREFIX.cfg"
+         cd -
+         licensefix
+}
+

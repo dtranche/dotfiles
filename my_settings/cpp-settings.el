@@ -54,7 +54,16 @@
       (add-to-list 'auto-mode-alist '("\\.h$" . my-redline-mode))
       (add-to-list 'auto-mode-alist '("\\.cpp$" . my-redline-mode))
       (add-to-list 'auto-mode-alist '("\\.cc$" . my-redline-mode))
-     (add-to-list 'auto-mode-alist '("\\.c$" . my-redline-mode))))
+      (add-to-list 'auto-mode-alist '("\\.src$" . my-redline-mode))
+      (add-to-list 'auto-mode-alist '("\\.c$" . my-redline-mode))))
  
+
+(add-hook 'c-mode-common-hook
+  (lambda()
+    (local-set-key (kbd "C-c <right>") 'hs-show-block)
+    (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+    (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+    (local-set-key (kbd "C-c <down>")  'hs-show-all)
+    (hs-minor-mode t)))
       
 (provide 'cpp-settings)

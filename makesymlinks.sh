@@ -1,4 +1,4 @@
-b#!/bin/bash
+#!/bin/bash
 ############################
 # .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
@@ -8,7 +8,7 @@ b#!/bin/bash
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc emacs"
+files="bashrc emacs gdbinit"
 emacsdir=$dir/emacs_el_files
 bashdir=$dir/environment/bash
 
