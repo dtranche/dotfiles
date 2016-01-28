@@ -13,7 +13,7 @@ DENIST_UID=557
 export ostype=`uname`
 
 #echo breaks the build
-case $ostype in 
+case $ostype in
 Darwin)
 #        echo I am running on a Mac
         ;;
@@ -30,7 +30,7 @@ if [ $UID == $DENIST_UID ]; then
     export PATH=$PATH:/home/scripts
 else
     export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
-    
+
 fi
 . /home/scripts/os_helper_functions.sh
 . /home/scripts/rts_helper_functions.sh
@@ -46,8 +46,8 @@ alias h='history'
 alias grep='grep --color'
 alias hgrep='history | grep --color'
 alias e='/usr/local/bin/emacs $@'
-alias get_aws='/home/scripts/get_instance.sh centos7 8'
-export LESS='-j24 -X'     
+alias get_aws='/home/scripts/get_instance.sh centos7 16'
+export LESS='-j24 -X'
 
 # @<notebook>#<tag>#<tag>
 # notebook and tags must exist
@@ -64,7 +64,7 @@ function build_cscope ( )
 
 function _ppid
 {
-    ps -p ${1:-$$} -o ppid=; 
+    ps -p ${1:-$$} -o ppid=;
 }
 function osType ( )
 {
@@ -88,5 +88,5 @@ alias r_ssh='ssh -o ServerAliveInterval=120 -l denist '
 
 export RATTSHOMEDIR='/home/sqa/ratts_release_fh'
 if [ -f /home/sqa/bashrc-ratts ]; then
-    . /home/sqa/bashrc-ratts 
-fi 
+    . /home/sqa/bashrc-ratts
+fi

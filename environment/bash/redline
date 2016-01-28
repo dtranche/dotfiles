@@ -166,8 +166,12 @@ function fh_setup ( ) {
          fhinstall
          . /home/scripts/rts_helper_common.sh
          config
-	 sudo rm -f "$FH_PREFIX.cfg"
-         sudo ln -s "$*" "$FH_PREFIX.cfg"
+	       sudo rm -f "$FH_PREFIX.cfg"
+         if [ -z "$1" ] ; then
+             sudo cp "$FH_PREFIX.cfg.bats" "$FH_PREFIX.cfg"
+         else
+             sudo ln -s "$*" "$FH_PREFIX.cfg"
+         fi
          cd -
          licensefix
 }

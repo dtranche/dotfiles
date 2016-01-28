@@ -1,5 +1,5 @@
-;; used to store more basic settings 
-;; tabs 
+;; used to store more basic settings
+;; tabs
 ;; keystrokes
 
 ;; General setup
@@ -12,9 +12,9 @@
 (setq linum-format "%4d  ")
 
 ;; Adding 11/08/2012
-(ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;;(ido-mode 1)
+;;(setq ido-enable-flex-matching t)
+;;(setq ido-everywhere t)
 
 ;; Highlight the edited line
 (global-hl-line-mode 1)
@@ -35,12 +35,12 @@
 (define-key global-map [f2] 'undo)
 (define-key global-map [f3] 'isearch-forward)
 ;;(define-key global-map [f4] 'other-window)
-;;(define-key global-map [f5] 'other-frame)
-(define-key global-map [f4] 'ediff-buffers)
-(global-set-key [f5] 'cscope-find-global-definition)
-(global-set-key [f6] 'cscope-find-this-symbol)
-(global-set-key [(shift f6)] 'cscope-find-this-text-string)
-(global-set-key [f7] 'cscope-next-symbol)
+;;(define-key global-map [f5] 'other-frame)(
+ (define-key global-map [f4] 'ediff-buffers)
+;; (global-set-key [f5] 'cscope-find-global-definition)
+;; (global-set-key [f6] 'cscope-find-this-symbol)
+;; (global-set-key [(shift f6)] 'cscope-find-this-text-string)
+;; (global-set-key [f7] 'cscope-next-symbol)
 
 (define-key global-map [f12] 'revert-buffer)
 
@@ -53,10 +53,10 @@
 ;; fedora/gnome maps "M-`" to something else
 (global-set-key (kbd "M-1") 'jump-to-mark)
 
-(global-set-key (kbd "M-<up>") 'scroll-down-command)
-(global-set-key (kbd "M-<down>") 'scroll-up-command)
-(global-set-key (kbd "ESC <up>") 'scroll-down-command)
-(global-set-key (kbd "ESC <down>") 'scroll-up-command)
+;;(global-set-key (kbd "M-<up>") 'scroll-down-command)
+;;(global-set-key (kbd "M-<down>") 'scroll-up-command)
+;;(global-set-key (kbd "ESC <up>") 'scroll-down-command)
+;;(global-set-key (kbd "ESC <down>") 'scroll-up-command)
 ;; add a couple to auto-modes-alist
 (add-to-list 'auto-mode-alist '("[Mm]ake*" . makefile-mode))
 (global-set-key (kbd "C-c a") 'beginning-of-defun)
@@ -67,16 +67,6 @@
 (if (system-is-mac)
     (message "I am a Mac")
     (setq ns-command-modifier 'meta))
-
-;;(if (>= emacs-major-version 24) 
-;;    (progn
-;;      (load-theme 'whiteboard)
-;;      (if (system-is-mac)
-;;      (load-theme 'tango-dark)
-;;        (color-theme-solarized-light)
-;;      (message "Running emacs 24 or greater"))
-;;  (message "Think about updating emacs")
-;;)
 
 
 (fset 'yes-or-no-p 'y-or-n-p)
