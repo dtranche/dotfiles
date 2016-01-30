@@ -90,7 +90,7 @@
 ;; ;; this probably should be mac only
 ;; ;; I really only want to click between buffers
 (xterm-mouse-mode t)
-;; (which-function-mode 1)
+(which-function-mode 1)
 ;; (eval-after-load "vc" '(remove-hook 'find-file-hooks 'vc-find-file-hook))
 
 (global-set-key (kbd "M-j") 'windmove-left)

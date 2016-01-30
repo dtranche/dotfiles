@@ -14,5 +14,5 @@
 (global-set-key [f6] 'helm-cscope-find-this-symbol)
 (global-set-key [(shift f6)] 'helm-cscope-find-this-text-string)
 (global-set-key [f7] 'helm-resume)
-
+(global-set-key [f8] 'helm-occur)
 (provide 'helm-settings)

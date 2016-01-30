@@ -77,7 +77,7 @@
   (exchange-point-and-mark)
   (deactivate-mark nil))
 (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
-(defalias 'rb 'revert-buffer)
+;;(defalias 'rb 'revert-without-query)
 (defalias 'es 'eshell)
 (defalias 'rn 'rename-buffer)
 
