@@ -33,7 +33,7 @@
 (define-key global-map [end] 'end-of-line )
 ;;(define-key global-map [f1] 'help-command)
 (define-key global-map [f2] 'undo)
-(define-key global-map [f3] 'isearch-forward)
+;;(define-key global-map [f3] 'isearch-forward)
 ;;(define-key global-map [f4] 'other-window)
 ;;(define-key global-map [f5] 'other-frame)(
  (define-key global-map [f4] 'ediff-buffers)

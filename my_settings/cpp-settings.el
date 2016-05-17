@@ -36,9 +36,10 @@
   (setq indent-tabs-mode nil)        ; use spaces rather than tabs
   (setq c-basic-offset 5)            ; indent by 2 spaces
   (setq c-basic-indent 5)
+  (modify-syntax-entry ?_ "w")
   )
 
-  
+
 ;; Associate extensions with modes
 ;; Use same mode for c and c++
 (if (string-match user "dtranche")
@@ -56,7 +57,7 @@
       (add-to-list 'auto-mode-alist '("\\.cc$" . my-redline-mode))
       (add-to-list 'auto-mode-alist '("\\.src$" . my-redline-mode))
       (add-to-list 'auto-mode-alist '("\\.c$" . my-redline-mode))))
- 
+
 
 (add-hook 'c-mode-common-hook
   (lambda()
@@ -65,5 +66,5 @@
     (local-set-key (kbd "C-c <up>")    'hs-hide-all)
     (local-set-key (kbd "C-c <down>")  'hs-show-all)
     (hs-minor-mode t)))
-      
+
 (provide 'cpp-settings)
