@@ -13,7 +13,7 @@
 (xterm-mouse-mode t)
 (which-function-mode 1)
 
- (add-to-list 'load-path "~/.emacs.d/settings")
+(add-to-list 'load-path "~/.emacs.d/settings")
 (add-to-list 'load-path (expand-file-name "~/environment/emacs"))
 
 (setq explicit-shell-file-name "/bin/bash")
@@ -36,7 +36,7 @@
 
 (require 'custom-functions)
 (require 'basic-settings)
-
+(require 'cpp-settings)
 (require 'auto-complete)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (require 'auto-complete-config)
@@ -45,9 +45,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defun get-point ( symbol &optional arg )
-  "get the point"
-  (funcall symbol arg )
-  (point)
+   "get the point"
+   (funcall symbol arg )
+   (point)
 )
 
 (defun copy-thing ( begin-of-thing end-of-thing &optional arg )
@@ -80,16 +80,16 @@
          "make -j 32 server_clean_native"
          "make -j 32 clean"))
 
+
 (require 'helm)
 (require 'helm-config)
 (require 'helm-cscope)
 (require 'helm-projectile)
 
 (require 'helm-settings)
-(require 'cpp-settings)
-
-
-
+(require 'ac-helm)
+(require 'popwin)
+(popwin-mode 1)
 ;; (put 'upcase-region 'disabled nil)
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.

@@ -16,9 +16,12 @@
 (global-set-key [f5] 'helm-cscope-find-global-definition)
 (global-set-key [f6] 'helm-cscope-find-this-symbol)
 (global-set-key [(shift f6)] 'helm-cscope-find-this-text-string)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+
 (global-set-key [f7] 'helm-resume)
 (global-set-key [f8] 'helm-occur)
+
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
 
 
 (provide 'helm-settings)
