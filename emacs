@@ -67,6 +67,14 @@
 (global-set-key [remap forward-word] 'forward-symbol)
 (global-set-key (kbd "C-b") 'copy-word)
 
+(defun cscope-at-root ( switch )
+  (message "emacs was passed --cscope")
+  (cscope-set-initial-directory default-directory)
+  (cscope-index-files default-directory)
+)
+
+(add-to-list 'command-switch-alist '("--cscope" . cscope-at-root))
+
 (defun revert-buffer-no-confrimation ()
   "Revert buffer without confirmation."
   (interactive)
@@ -90,6 +98,29 @@
 (require 'ac-helm)
 (require 'popwin)
 (popwin-mode 1)
+
+(defun get-buffers-matching-mode (mode)
+  "Returns a list of buffers wher their major-mode is equal to MODE"
+  (let ((buffer-mod-matches '()))
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (if (eq mod major-mode)
+            (add-to-list 'buffer-mod-matches buf))))
+    buffer-mod-matches))
+
+(defun multi-occur-in-this-mode ()
+  "Show all lines matching REGEXP in buffers with this major mode"
+  (interactive)
+  (multi-occur
+   (get-buffers-matching-mode major-mode)
+   (car (occur-read-primary-args))))
+
+;; Adding support for org
+(require 'org)
+(setq org-log-done `time)
+;; when hiding stars this works better
+(set-face-attribute 'org-hide nil :foreground "#4f4f4f")
+
 ;; (put 'upcase-region 'disabled nil)
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.
@@ -109,10 +140,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(custom-safe-themes
+   (quote
+    ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
+ '(org-agenda-files (quote ("~/org/work.org")))
+ '(package-selected-packages
+   (quote
+    (yasnippet solarized-theme color-theme-solarized color-theme-sanityinc-solarized org-bullets magit use-package thingatpt+ thing-cmds sublime-themes popwin markdown-mode iy-go-to-char irony helm-projectile helm-gtags helm-cscope ggtags flycheck company color-theme ac-helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil))))
+ '(helm-buffer-file ((t (:foreground "magenta"))))
+ '(minibuffer-prompt ((t (:foreground "yellow")))))

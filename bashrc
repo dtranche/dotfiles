@@ -3,7 +3,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # differentiate between Redline and other accounts
@@ -24,7 +24,9 @@ esac
 
 
 if [ $UID == $DENIST_UID ]; then
-    if [ -e ~/local/bin/emacs ]; then
+    if [ -e ~/emacs/rhel7/bin/emacs ]; then
+        alias emacs=~/emacs/rhel7/bin/emacs
+    elif [ -e ~/local/bin/emacs ]; then
         alias emacs=~/local/bin/emacs
     fi
     export PATH=$PATH:/home/scripts
@@ -41,13 +43,20 @@ for f in ~/environment/bash/*; do if [[ -f $f ]]; then . $f; fi; done
 export PATH=$PATH:~/bin:/opt/llvm/bin
 
 export HISTCONTROL=ignoreboth
-
+export CLICOLOR=1
 alias h='history'
 alias grep='grep --color'
-alias hgrep='history | grep --color'
-alias e='/usr/local/bin/emacs $@'
+alias hgrep='history | grep --color=always'
+alias e='~/emacs/rhel7/bin/emacs --cscope $@'
 alias get_aws='/home/scripts/get_instance.sh centos7 16'
-export LESS='-j24 -X'
+alias ag='ag --noaffinity --silent'
+#unalias l.
+#unalias ll
+#unalias ls
+#alias l.='ls -d .* --color=auto'
+#alias ll='ls -l --color=auto'
+#alias ls='ls -Ghl --color=auto'
+export LESS='-j24 -X -R'
 
 # @<notebook>#<tag>#<tag>
 # notebook and tags must exist
