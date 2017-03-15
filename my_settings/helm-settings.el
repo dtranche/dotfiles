@@ -23,5 +23,5 @@
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
 (global-set-key (kbd "C-x b") 'helm-mini)
 
-
+(set-face-background 'helm-selection-line "#111")
 (provide 'helm-settings)
