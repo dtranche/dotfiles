@@ -1,3 +1,4 @@
+
 ;; used to store more basic settings
 ;; tabs
 ;; keystrokes
@@ -5,10 +6,11 @@
 ;; General setup
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
+
 (line-number-mode t)
 (column-number-mode t)
 
-;;(global-linum-mode 1)
+(add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d  ")
 
 ;; Adding 11/08/2012
@@ -18,6 +20,9 @@
 
 ;; Highlight the edited line
 (global-hl-line-mode 1)
+(set-face-background 'highlight "#111")
+(set-face-underline 'highlight nil)
+(set-face-foreground 'highlight nil);
 
 ;; TURN ON VISIBLE PAREN MATCHING
 (show-paren-mode 1)
@@ -25,7 +30,10 @@
 ;; TURN OFF THE ICONS
 (tool-bar-mode 1)
 
-;; Global get strokeso
+;; S-Up S-Down S-Left S-Right
+(windmove-default-keybindings)
+
+;; Global get strokes
 (define-key global-map "\C-xw" 'what-line)
 (global-set-key "\C-xg" 'goto-line)
 (define-key global-map [delete] 'delete-char)
@@ -53,6 +61,10 @@
 ;; fedora/gnome maps "M-`" to something else
 (global-set-key (kbd "M-1") 'jump-to-mark)
 
+;; navigation
+(global-set-key (kbd "M-n") 'next-line)
+(global-set-key (kbd "M-p") 'previous-line)
+
 ;;(global-set-key (kbd "M-<up>") 'scroll-down-command)
 ;;(global-set-key (kbd "M-<down>") 'scroll-up-command)
 ;;(global-set-key (kbd "ESC <up>") 'scroll-down-command)
@@ -62,6 +74,8 @@
 (global-set-key (kbd "C-c a") 'beginning-of-defun)
 (global-set-key (kbd "C-c e") 'end-of-defun)
 
+;; New as of 12/05/2016
+(global-set-key (kbd "M-m") 'iy-go-to-char)
 ;; set command key to be meta instead of option
 ;; ns seems broken 3/22/2014???
 (if (system-is-mac)
@@ -104,6 +118,12 @@
   (interactive "sbuffer name : ")
   (ansi-term "/bin/bash")
   (rename-buffer buffer-name t))
+
+(defun what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property (point) 'read-face-name)
+                  (get-char-property (point) 'face))))
+  (if face (message "Face: %s" face) (message "No face at %d", pos))))
 
 ;;(setq split-width-threshold 2000)
 ;;(setq split-height-threshold 1200)

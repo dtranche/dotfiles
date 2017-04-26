@@ -29,7 +29,9 @@ if [ $UID == $DENIST_UID ]; then
     elif [ -e ~/local/bin/emacs ]; then
         alias emacs=~/local/bin/emacs
     fi
+    export fhlog=/var/opt/redline/inrush/log/inrush.log
     export PATH=$PATH:/home/scripts
+    export PATH=$PATH:/opt/redline/inrush/bin:/opt/redline/inrush/example
 else
     export CLASSPATH+=.:$HOME/Programming/Java/algorithms/stdlib.jar:$HOME/Programming/Java/algorithms/algs4.jar
 
@@ -50,7 +52,9 @@ alias hgrep='history | grep --color=always'
 alias e='~/emacs/rhel7/bin/emacs --cscope $@'
 alias get_aws='/home/scripts/get_instance.sh centos7 16'
 alias ag='ag --noaffinity --silent'
-#unalias l.
+alias gdb_core='sudo gdb /opt/redline/inrush/bin/redline-inrush.exe -c '
+alias gdb_attach='sudo gdb /opt/redline/inrush/bin/redline-inrush.exe -p `pidof /opt/redline/inrush/bin/redline-inrush.exe` '
+export LS_COLORS=$LS_COLORS:"di=0;1;34"
 #unalias ll
 #unalias ls
 #alias l.='ls -d .* --color=auto'
