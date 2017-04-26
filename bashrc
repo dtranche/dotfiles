@@ -54,7 +54,7 @@ alias get_aws='/home/scripts/get_instance.sh centos7 16'
 alias ag='ag --noaffinity --silent'
 alias gdb_core='sudo gdb /opt/redline/inrush/bin/redline-inrush.exe -c '
 alias gdb_attach='sudo gdb /opt/redline/inrush/bin/redline-inrush.exe -p `pidof /opt/redline/inrush/bin/redline-inrush.exe` '
-export LS_COLORS=$LS_COLORS:"di=0;1;34"
+LS_COLORS="di=0;1;34:ow=00"
 #unalias ll
 #unalias ls
 #alias l.='ls -d .* --color=auto'
